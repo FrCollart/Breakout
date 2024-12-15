@@ -1,23 +1,28 @@
 // Breakout.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
-#include <SFML/Graphics.hpp>
+#include <iostream>
+
+#include "SFMLTest.h"
+#include "App.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Test");
-    sf::CircleShape shape(50);
-    shape.setFillColor(sf::Color::Green);
+    
+	// Uncomment this to test if SFML is working correctly
+	/*
+    try
+    {
+		SFMLTest::Run();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "SFML is not installed correctly, please check your installation" << std::endl;
+		std::cerr << e.what() << std::endl;
+		return EXIT_FAILURE;
+	}
+	*/
 
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	App* app = new App();
+	app->Run();
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
-
-    return 0;
+    return EXIT_SUCCESS;
 }
