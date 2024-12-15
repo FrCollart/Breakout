@@ -21,7 +21,7 @@ int main() {
 	}
 	*/
 
-	App* app = new App();
+	std::unique_ptr<App> app = std::make_unique<App>();
 	app->Run();
 
     return EXIT_SUCCESS;
