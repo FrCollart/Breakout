@@ -21,6 +21,7 @@ Entity::~Entity()
 
 void Entity::LoadTexture(sf::Texture img)
 {
+
 }
 
 float Entity::GetX() const
