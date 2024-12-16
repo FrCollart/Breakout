@@ -146,10 +146,15 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Breakout.cpp" />
     <ClCompile Include="SFMLTest.cpp" />
+    <ClCompile Include="TimeManager.cpp" />
+    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="GameConsts.h" />
     <ClInclude Include="SFMLTest.h" />
+    <ClInclude Include="TimeManager.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
