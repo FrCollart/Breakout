@@ -10,6 +10,7 @@ public:
 	~Ball();
 
 	void Update(float deltaTime);
+	void LoadTexture();
 
 	void SetSpritePos(float newX, float newY) override;
 
