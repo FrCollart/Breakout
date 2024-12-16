@@ -1,9 +1,9 @@
 #include "SFMLTest.h"
-
 #include <SFML/Graphics.hpp>
 
 void SFMLTest::Run()
 {
+    /*
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML Test");
     sf::CircleShape shape(50);
     shape.setFillColor(sf::Color::Green);
@@ -18,5 +18,5 @@ void SFMLTest::Run()
         window.clear();
         window.draw(shape);
         window.display();
-    }
+    }*/
 }
