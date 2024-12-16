@@ -15,8 +15,8 @@ public:
 
 
 private:
-	float m_posX;
-	float m_posY;
-	sf::Texture m_text;
+	float m_PosX;
+	float m_PosY;
+	sf::Texture m_Text;
 };
 
