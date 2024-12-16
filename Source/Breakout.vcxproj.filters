@@ -62,7 +62,7 @@
       <Filter>Source Files\Core\Private</Filter>
     </ClCompile>
     <ClCompile Include="EntityManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +99,8 @@
     <ClInclude Include="BrickGrid.h">
       <Filter>Source Files\Core\Public</Filter>
     </ClInclude>
-    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="EntityManager.h">
+      <Filter>Source Files\Core\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
