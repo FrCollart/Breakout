@@ -5,13 +5,6 @@
 
 #include "GameConsts.h"
 
-template <typename T>
-concept DrawableIterator = requires(T t)
-{
-    { std::begin(t) } -> std::input_iterator;
-    { *std::begin(t) } -> std::convertible_to<const sf::Drawable&>;
-};
-
 class Window
 {
 public:
@@ -26,8 +19,7 @@ public:
     void PollEvents();
     bool IsOpen() const;
     void Clear();
-    template<DrawableIterator Iterator>
-    void Draw(const Iterator& drawables);
+    void Draw();
 
 private:
     void InternalDisplay();
@@ -35,14 +27,3 @@ private:
 private:
     sf::RenderWindow m_Window;
 };
-
-template<DrawableIterator Iterator>
-inline void Window::Draw(const Iterator& drawables)
-{
-    Clear();
-	for (const auto& drawable : drawables)
-	{
-		m_Window.draw(drawable);
-	}
-    InternalDisplay();
-}

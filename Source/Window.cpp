@@ -1,5 +1,10 @@
 #include "Window.h"
 
+#include "EntityManager.h"
+#include "Entity.h"
+
+#include <memory>
+
 //Temp include
 #include <iostream>
 
@@ -30,6 +35,24 @@ bool Window::IsOpen() const
 void Window::Clear()
 {
 	m_Window.clear();
+}
+
+void Window::Draw()
+{
+	Clear();
+
+	auto& entityManager = EntityManager::GetInstance();
+	for (const auto& entity : entityManager.GetEntities())
+	{
+		auto sprite = entity->GetSprite();
+
+		if (!sprite.expired())
+		{
+			m_Window.draw(*sprite.lock());
+		}
+	}
+
+	InternalDisplay();
 }
 
 void Window::InternalDisplay()

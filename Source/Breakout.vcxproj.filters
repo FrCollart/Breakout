@@ -61,6 +61,9 @@
     <ClCompile Include="BrickGrid.cpp">
       <Filter>Source Files\Core\Private</Filter>
     </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFMLTest.h">
@@ -96,5 +99,6 @@
     <ClInclude Include="BrickGrid.h">
       <Filter>Source Files\Core\Public</Filter>
     </ClInclude>
+    <ClInclude Include="EntityManager.h" />
   </ItemGroup>
 </Project>

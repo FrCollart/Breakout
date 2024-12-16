@@ -1,5 +1,7 @@
 #include "App.h"
+
 #include "Ball.h"
+#include "EntityManager.h"
 
 void App::Run()
 {
@@ -42,14 +44,11 @@ void App::InternalRender()
 	circle.setFillColor(sf::Color::Red);
 	circle.setPosition(100, 100);*/
 
-	Ball *circle = new Ball(50);
+	auto& entityManager = EntityManager::GetInstance();
 
-	sf::RectangleShape rectangle(sf::Vector2f(120, 60));
-	rectangle.setFillColor(sf::Color::Blue);
-	rectangle.setPosition(300, 200);
-
-	std::vector<std::reference_wrapper<sf::Drawable>> drawables = {rectangle};
+	auto circle = std::make_shared<Ball>(50.0f);
+	entityManager.AddEntity(circle);
 	// END OF TEST
 
-	m_Window->Draw(drawables);
+	m_Window->Draw();
 }
