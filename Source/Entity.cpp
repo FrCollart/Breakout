@@ -1,17 +1,17 @@
 #include "Entity.h"
 
 Entity::Entity(float posX, float posY, sf::Texture img)
-	:m_posX(posX),m_posY(posY),m_text(img)
+	:m_PosX(posX),m_PosY(posY),m_Text(img)
 {
 }
 
 Entity::Entity(float posX, float posY)
-	:m_posX(posX), m_posY(posY)
+	:m_PosX(posX), m_PosY(posY)
 {
 }
 
 Entity::Entity()
-	:m_posX(0), m_posY(0)
+	:m_PosX(0), m_PosY(0)
 {
 }
 
@@ -21,15 +21,15 @@ Entity::~Entity()
 
 void Entity::LoadTexture(std::string filePath)
 {
-	m_text.loadFromFile(filePath);
+	m_Text.loadFromFile(filePath);
 }
 
 float Entity::GetX() const
 {
-	return m_posX;
+	return m_PosX;
 }
 
 float Entity::GetY() const
 {
-	return m_posY;
+	return m_PosY;
 }

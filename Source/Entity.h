@@ -14,9 +14,9 @@ public:
 	float GetY() const;
 
 
-private:
-	float m_posX;
-	float m_posY;
-	sf::Texture m_text;
+protected:
+	float m_PosX;
+	float m_PosY;
+	sf::Texture m_Text;
 };
 
