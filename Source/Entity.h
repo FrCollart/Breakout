@@ -9,7 +9,7 @@ public:
 	Entity();
 	~Entity();
 
-	void LoadTexture(sf::Texture img);
+	void LoadTexture(std::string filePath);
 	float GetX() const;
 	float GetY() const;
 
@@ -17,6 +17,6 @@ public:
 private:
 	float m_posX;
 	float m_posY;
-	sf::Texture m_img;
+	sf::Texture m_text;
 };
 
