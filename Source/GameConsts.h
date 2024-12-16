@@ -9,4 +9,5 @@ constexpr const float DEFAULT_BRICK_HEIGHT = 20.0f;
 
 // Textures path
 constexpr const char* TEXTUREPLAYER = "";
+constexpr const char* TEXTUREBALL = "../../source/ball.png";
 constexpr const char* TEXTUREBRICK = "";
