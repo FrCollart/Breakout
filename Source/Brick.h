@@ -11,6 +11,8 @@ public:
 	Brick(float x, float y, float width, float height) : Entity(x, y), m_Width(width), m_Height(height), m_IsReachable(false) {}
 	~Brick() {}
 
+	void SetSpritePos(float newX, float newY) override;
+
 private:
 	float m_Width = 0.0f;
 	float m_Height = 0.0f;

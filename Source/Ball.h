@@ -11,6 +11,7 @@ public:
 
 	void Update(float deltaTime);
 
+	void SetSpritePos(float newX, float newY) override;
 
 private:
 	float m_Speed;
