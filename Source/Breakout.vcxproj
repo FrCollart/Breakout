@@ -145,12 +145,14 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Breakout.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="SFMLTest.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameConsts.h" />
     <ClInclude Include="SFMLTest.h" />
     <ClInclude Include="TimeManager.h" />

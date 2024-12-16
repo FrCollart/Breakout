@@ -23,12 +23,12 @@ void Entity::LoadTexture(sf::Texture img)
 {
 }
 
-const float Entity::GetX()
+float Entity::GetX() const
 {
 	return m_posX;
 }
 
-const float Entity::GetY()
+float Entity::GetY() const
 {
 	return m_posY;
 }

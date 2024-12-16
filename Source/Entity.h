@@ -10,8 +10,8 @@ public:
 	~Entity();
 
 	void LoadTexture(sf::Texture img);
-	const float GetX();
-	const float GetY();
+	float GetX() const;
+	float GetY() const;
 
 
 private:
