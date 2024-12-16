@@ -1,10 +1,12 @@
 #include "App.h"
 
 #include "Window.h"
+#include "TimeManager.h"
 
 void App::Run()
 {
 	std::unique_ptr<Window> window = std::make_unique<Window>();
+	std::unique_ptr<TimeManager> timeManager = std::make_unique<TimeManager>();
 	
 	// TEST ONLY
 	sf::CircleShape circle(50);
@@ -21,6 +23,11 @@ void App::Run()
 	while (window->IsOpen())
 	{
 		window->PollEvents();
+
+		timeManager->Update();
+		float deltaTime = timeManager->GetDeltaTime();
+		// TODO: Update game logic here
+
 		window->Draw(drawables);
 	}
 }
