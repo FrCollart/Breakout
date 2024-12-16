@@ -22,7 +22,7 @@ void Window::Clear()
 	m_Window.clear();
 }
 
-void Window::Display()
+void Window::InternalDisplay()
 {
 	m_Window.display();
 }

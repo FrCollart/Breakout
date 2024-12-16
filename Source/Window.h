@@ -28,7 +28,9 @@ public:
     void Clear();
     template<DrawableIterator Iterator>
     void Draw(const Iterator& drawables);
-    void Display();
+
+private:
+    void InternalDisplay();
 
 private:
     sf::RenderWindow m_Window;
@@ -37,8 +39,10 @@ private:
 template<DrawableIterator Iterator>
 inline void Window::Draw(const Iterator& drawables)
 {
+    Clear();
 	for (const auto& drawable : drawables)
 	{
 		m_Window.draw(drawable);
 	}
+    InternalDisplay();
 }
