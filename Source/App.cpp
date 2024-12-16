@@ -1,13 +1,41 @@
 #include "App.h"
 
-#include "Window.h"
-#include "TimeManager.h"
-
 void App::Run()
 {
-	std::unique_ptr<Window> window = std::make_unique<Window>();
-	std::unique_ptr<TimeManager> timeManager = std::make_unique<TimeManager>();
-	
+	InternalInit();	
+
+	// Init TimaManager delta time
+	m_TimeManager->Update();
+
+	while (m_Window->IsOpen())
+	{
+		InternalInput();
+		InternalUpdate();
+		InternalRender();
+	}
+}
+
+void App::InternalInit()
+{
+	// Initialize game components
+	m_Window = std::make_unique<Window>();
+	m_TimeManager = std::make_unique<TimeManager>();
+	m_PhysicsManager = std::make_unique<PhysicsManager>();
+}
+
+void App::InternalInput()
+{
+	m_Window->PollEvents();
+}
+
+void App::InternalUpdate()
+{
+	m_TimeManager->Update();
+	float deltaTime = m_TimeManager->GetDeltaTime();
+}
+
+void App::InternalRender()
+{
 	// TEST ONLY
 	sf::CircleShape circle(50);
 	circle.setFillColor(sf::Color::Red);
@@ -20,14 +48,5 @@ void App::Run()
 	std::vector<std::reference_wrapper<sf::Drawable>> drawables = { circle, rectangle };
 	// END OF TEST
 
-	while (window->IsOpen())
-	{
-		window->PollEvents();
-
-		timeManager->Update();
-		float deltaTime = timeManager->GetDeltaTime();
-		// TODO: Update game logic here
-
-		window->Draw(drawables);
-	}
+	m_Window->Draw(drawables);
 }
