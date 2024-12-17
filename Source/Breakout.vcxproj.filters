@@ -26,6 +26,9 @@
     <Filter Include="Source Files\Entity\Public">
       <UniqueIdentifier>{8af54438-920c-4710-adc2-a94b9a46c818}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sprite">
+      <UniqueIdentifier>{f2781fad-f4c5-4b83-bcc8-2417de75f4c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SFMLTest.cpp">
@@ -102,5 +105,10 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Source Files\Core\Public</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ballTexture.png">
+      <Filter>Source Files\Sprite</Filter>
+    </Image>
   </ItemGroup>
 </Project>
