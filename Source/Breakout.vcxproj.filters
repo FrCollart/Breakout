@@ -107,7 +107,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ballTexture.png">
+    <Image Include="PoolBallWhite.png">
       <Filter>Source Files\Sprite</Filter>
     </Image>
   </ItemGroup>

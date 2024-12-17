@@ -2,10 +2,10 @@
 #include "GameConsts.h"
 
 Ball::Ball()
-	: Entity(), m_Speed(100.0f), m_DirectionX(0.0f), m_DirectionY(-1.0f), m_Size(50.0f)
+	: Entity(), m_Speed(DEFAULT_BALL_SPEED), m_DirectionX(DEFAULT_BALL_DIRECTIONX), m_DirectionY(DEFAULT_BALL_DIRECTIONY), m_Size(DEFAULT_BALL_SIZE)
 {
 	m_Sprite = std::make_shared<sf::CircleShape>(m_Size);
-	LoadTexture(TEXTUREBALL);	
+	//LoadTexture(TEXTUREBALL);	
 }
 
 Ball::Ball(float size)
@@ -15,9 +15,10 @@ Ball::Ball(float size)
 }
 
 Ball::Ball(float posX, float posY, float size)
-	:Entity(posX, posY), m_Speed(100.0f), m_DirectionX(0.0f), m_DirectionY(-1.0f), m_Size(size)
+	:Entity(posX, posY), m_Speed(DEFAULT_BALL_SPEED), m_DirectionX(DEFAULT_BALL_DIRECTIONX), m_DirectionY(DEFAULT_BALL_DIRECTIONY), m_Size(size)
 {
 	m_Sprite = std::make_shared<sf::CircleShape>(m_Size);
+	//LoadTexture(TEXTUREBALL);
 	SetSpritePos(m_PosX, m_PosY);
 }
 
