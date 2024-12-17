@@ -27,7 +27,7 @@ void App::InternalInit()
 
 	auto& entityManager = EntityManager::GetInstance();
 
-	auto circle = std::make_shared<Ball>(400,600,10.0f);
+	auto circle = std::make_shared<Ball>(400.0f,600.0f,10.0f);
 	entityManager.AddEntity(circle);
 	
 }
