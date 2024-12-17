@@ -47,3 +47,13 @@ void Entity::SetY(float y)
 	m_PosY = y;
 	SetSpritePos(m_PosX, m_PosY);
 }
+
+void Entity::LoadTexture(const char* filePath)
+{
+	/*std::shared_ptr<sf::Texture> m_Texture = std::make_shared<sf::Texture>();
+	if (!m_Texture->loadFromFile(filePath)) {
+		throw std::runtime_error("Impossible de charger la texture !");
+	}
+
+	m_Sprite = std::make_shared<sf::Sprite>(*m_Texture);*/
+}

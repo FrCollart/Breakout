@@ -16,9 +16,13 @@ public:
 	void SetX(float x);
 	void SetY(float y);
 
+	void LoadTexture(const char* filePath);
+
+	virtual void Update(float deltaTime) =0;
+
 	// Since Sprite is different for every entity, the offset between the real position and the sprite position is different as well
 	virtual void SetSpritePos(float newX, float newY) = 0;
-
+	
 protected:
 	float m_PosX = 0.0f;
 	float m_PosY = 0.0f;

@@ -9,8 +9,7 @@ public:
 	Ball(float posX, float posY, float size);
 	~Ball();
 
-	void Update(float deltaTime);
-	void LoadTexture();
+	void Update(float deltaTime) override;
 
 	void SetSpritePos(float newX, float newY) override;
 
