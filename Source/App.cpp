@@ -2,6 +2,7 @@
 
 #include "Ball.h"
 #include "EntityManager.h"
+#include "BrickGrid.h"
 
 void App::Run()
 {
@@ -25,10 +26,15 @@ void App::InternalInit()
 	m_TimeManager = std::make_unique<TimeManager>();
 	m_PhysicsManager = std::make_unique<PhysicsManager>();
 
-	auto& entityManager = EntityManager::GetInstance();
+	// TEST ONLY
+	BrickGrid brickGrid;
+	brickGrid.ImportMap("Ressource/map.txt");
+
+	/*auto& entityManager = EntityManager::GetInstance();
 
 	auto circle = std::make_shared<Ball>(400.0f,600.0f,10.0f);
-	entityManager.AddEntity(circle);
+	entityManager.AddEntity(circle);*/
+	// END OF TEST
 	
 }
 
