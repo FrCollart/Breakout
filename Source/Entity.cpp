@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include <iostream>
 
 Entity::Entity(float posX, float posY)
 	: m_PosX(posX), m_PosY(posY)
@@ -50,10 +51,11 @@ void Entity::SetY(float y)
 
 void Entity::LoadTexture(const char* filePath)
 {
-	/*std::shared_ptr<sf::Texture> m_Texture = std::make_shared<sf::Texture>();
-	if (!m_Texture->loadFromFile(filePath)) {
-		throw std::runtime_error("Impossible de charger la texture !");
+	sf::Texture m_Texture;
+
+	if (!m_Texture.loadFromFile(filePath)) {
+		std::cerr << "Erreur : Impossible de charger la texture depuis : " << filePath << std::endl;
 	}
 
-	m_Sprite = std::make_shared<sf::Sprite>(*m_Texture);*/
+	m_Sprite = std::make_shared<sf::Sprite>(std::move(m_Texture));
 }
