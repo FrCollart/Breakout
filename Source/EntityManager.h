@@ -3,6 +3,8 @@
 #include <vector>
 #include <memory>
 
+class Player;
+
 class EntityManager
 {
 public:
@@ -15,6 +17,8 @@ public:
 	void RemoveEntity(std::shared_ptr<class Entity> entity);
 
 	const std::vector<std::shared_ptr<Entity>>& GetEntities() const { return m_Entities; }
+	std::weak_ptr<Player> GetPlayer() const;
+	void SetPlayer(std::shared_ptr<Player> player);
 
 private:
 	// Private Constructor because of Singleton pattern
@@ -22,5 +26,6 @@ private:
 	~EntityManager() = default;
 
 	std::vector<std::shared_ptr<class Entity>> m_Entities;
+	std::shared_ptr<Player> m_Player;
 };
 
