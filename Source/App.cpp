@@ -1,6 +1,7 @@
 #include "App.h"
 
 #include "Ball.h"
+#include "Player.h"
 #include "EntityManager.h"
 #include "BrickGrid.h"
 
@@ -29,6 +30,15 @@ void App::InternalInit()
 	// TEST ONLY
 	BrickGrid brickGrid;
 	brickGrid.ImportMap("Ressource/map.txt");
+
+	EntityManager& temp = EntityManager::GetInstance();
+	std::shared_ptr<Player> tempPlayer = std::make_shared<Player>();
+
+	tempPlayer->SetX(400.0f);
+	tempPlayer->SetY(400.0f);
+
+	temp.AddEntity(tempPlayer);
+	temp.SetPlayer(tempPlayer);
 
 	/*auto& entityManager = EntityManager::GetInstance();
 
@@ -61,7 +71,6 @@ void App::InternalRender()
 	circle.setFillColor(sf::Color::Red);
 	circle.setPosition(100, 100);*/
 
-	
 	// END OF TEST
 
 	m_Window->Draw();

@@ -5,9 +5,13 @@
 class Player : public Entity
 {
 public:
-	Player() :Entity(), m_Speed(10.0f), m_DirectionX(0.0f) {};
+	Player();
 	~Player() {};
 	void Move();
+
+	void SetDirection(float direction);
+	void SetSpritePos(float PosX, float PosY) override;
+	void Update(float deltaTime) override;
 
 private:
 	float m_Speed;
