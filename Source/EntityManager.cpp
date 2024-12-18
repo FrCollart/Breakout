@@ -1,5 +1,4 @@
 #include "EntityManager.h"
-#include "Player.h"
 
 EntityManager& EntityManager::GetInstance()
 {
@@ -7,22 +6,14 @@ EntityManager& EntityManager::GetInstance()
 	return instance;
 }
 
-void EntityManager::AddEntity(std::shared_ptr<class Entity> entity)
+std::vector<std::shared_ptr<Entity>> EntityManager::GetAllEntities()
 {
-	m_Entities.emplace_back(std::move(entity));
-}
+    std::vector<std::shared_ptr<Entity>> allEntities;
 
-void EntityManager::RemoveEntity(std::shared_ptr<class Entity> entity)
-{
-	m_Entities.erase(std::remove(m_Entities.begin(), m_Entities.end(), entity), m_Entities.end());
-}
+    for (const auto& [type, entities] : m_Entities)
+    {
+        allEntities.insert(allEntities.end(), entities.begin(), entities.end());
+    }
 
-std::weak_ptr<Player> EntityManager::GetPlayer() const
-{
-	return m_Player;
-}
-
-void EntityManager::SetPlayer(std::shared_ptr<Player> player)
-{
-	m_Player = std::move(player);
+    return allEntities;
 }

@@ -32,21 +32,18 @@ void App::InternalInit()
 	BrickGrid brickGrid;
 	brickGrid.ImportMap("Ressource/map.txt");
 
-	EntityManager& temp = EntityManager::GetInstance();
-	std::shared_ptr<Player> tempPlayer = std::make_shared<Player>();
+	std::shared_ptr<Player> player = std::make_shared<Player>();
 
-	tempPlayer->SetX(WINDOW_WIDTH / 2);
-	tempPlayer->SetY(700.0f);
+	player->SetX(WINDOW_WIDTH / 2);
+	player->SetY(700.0f);
 
-	temp.AddEntity(tempPlayer);
-	temp.SetPlayer(tempPlayer);
+	EntityManager::GetInstance().AddEntity(player);
 
 	/*auto& entityManager = EntityManager::GetInstance();
 
 	auto circle = std::make_shared<Ball>(400.0f,600.0f,10.0f);
 	entityManager.AddEntity(circle);*/
 	// END OF TEST
-	
 }
 
 void App::InternalInput()
@@ -58,9 +55,8 @@ void App::InternalUpdate()
 {
 	m_TimeManager->Update();
 	float deltaTime = m_TimeManager->GetDeltaTime();
-	auto& entityVector = EntityManager::GetInstance().GetEntities();
 
-	for (const auto& element : entityVector) {
+	for (auto& element : EntityManager::GetInstance().GetAllEntities()) {
 		element->Update(deltaTime);
 	}
 }

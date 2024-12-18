@@ -27,16 +27,16 @@ void Window::PollEvents()
 			}
 			if (event.key.code == sf::Keyboard::Left)
 			{
-				EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(-1.0f);
+				InternalSetPlayerDirection(-1.0f);
 			}
 			if (event.key.code == sf::Keyboard::Right)
 			{
-				EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(1.0f);
+				InternalSetPlayerDirection(1.0f);
 			}
 		}
 		if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(0.0f);
+			InternalSetPlayerDirection(0.0f);
 		}
 	}
 }
@@ -55,8 +55,7 @@ void Window::Draw()
 {
 	Clear();
 
-	auto& entityManager = EntityManager::GetInstance();
-	for (const auto& entity : entityManager.GetEntities())
+	for (const auto& entity : EntityManager::GetInstance().GetAllEntities())
 	{
 		auto sprite = entity->GetSprite();
 
@@ -72,4 +71,14 @@ void Window::Draw()
 void Window::InternalDisplay()
 {
 	m_Window.display();
+}
+
+void Window::InternalSetPlayerDirection(float direction)
+{
+	auto playersList = EntityManager::GetInstance().GetEntitiesByType<Player>();
+	if (playersList.empty())
+	{
+		return;
+	}
+	playersList.front()->SetDirection(direction);
 }

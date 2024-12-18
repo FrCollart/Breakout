@@ -23,6 +23,7 @@ public:
 
 private:
     void InternalDisplay();
+	void InternalSetPlayerDirection(float direction);
 
 private:
     sf::RenderWindow m_Window;
