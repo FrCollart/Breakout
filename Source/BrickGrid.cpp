@@ -4,16 +4,7 @@
 
 #include "Brick.h"
 #include "GameConsts.h"
-
-void BrickGrid::AddBrick(std::shared_ptr<class Brick> brick)
-{
-	m_Bricks.emplace_back(brick);
-}
-
-void BrickGrid::RemoveBrick(std::shared_ptr<class Brick> brick)
-{
-	m_Bricks.erase(std::remove(m_Bricks.begin(), m_Bricks.end(), brick), m_Bricks.end());
-}
+#include "EntityManager.h"
 
 void BrickGrid::ImportMap(std::string path)
 {
@@ -53,19 +44,15 @@ void BrickGrid::ImportMap(std::string path)
 		{
 			if (currentLine[colIndex] == 'X')
 			{
-				int x = colIndex * (BRICK_WIDTH + GRID_INTER);
-				int y = rowIndex * (BRICK_HEIGHT + GRID_INTER);
-
-				std::cout << "Brick at: x=" << x << ", y=" << y
-					<< ", width=" << BRICK_WIDTH << ", height=" << BRICK_HEIGHT << std::endl;
+				int x = colIndex * (BRICK_WIDTH + GRID_INTER) + GRID_X;
+				int y = rowIndex * (BRICK_HEIGHT + GRID_INTER) + GRID_Y;
 
 				auto brick = std::make_shared<Brick>(x, y, BRICK_WIDTH, BRICK_HEIGHT);
-				AddBrick(brick);
+				EntityManager::GetInstance().AddEntity(brick);
 			}
 		}
 		++rowIndex;
 	}
 
 	importFile.close();
-
 }

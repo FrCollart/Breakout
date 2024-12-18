@@ -15,11 +15,6 @@ public:
 	BrickGrid() {}
 	~BrickGrid() {}
 
-	void AddBrick(std::shared_ptr<class Brick> brick);
-	void RemoveBrick(std::shared_ptr<class Brick> brick);
 	void ImportMap(std::string path);
-
-private:
-	std::vector<std::shared_ptr<class Brick>> m_Bricks;
 };
 
