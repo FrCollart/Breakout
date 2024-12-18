@@ -7,7 +7,7 @@ void Brick::SetSpritePos(float newX, float newY)
 	{
 		return;
 	}
-	sprite->setPosition(newX - m_Width, newY - m_Height);
+	sprite->setPosition(newX, newY);
 }
 
 void Brick::Update(float deltaTime)
