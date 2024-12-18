@@ -14,6 +14,16 @@ void Player::Move()
 	m_PosX += m_Speed * m_DirectionX;
 }
 
+float Player::GetDirection()
+{
+	return m_DirectionX;
+}
+
+float Player::GetSpeed()
+{
+	return m_Speed;
+}
+
 void Player::SetDirection(float direction)
 {
 	m_DirectionX = direction;

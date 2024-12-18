@@ -35,12 +35,13 @@ void App::InternalInit()
 	std::shared_ptr<Player> player = std::make_shared<Player>();
 
 	player->SetX(WINDOW_WIDTH / 2);
-	player->SetY(700.0f);
+	player->SetY(WINDOW_HEIGHT - WINDOW_HEIGHT/10);
 
 	EntityManager::GetInstance().AddEntity(player);
 
 
-	auto ball = std::make_shared<Ball>(400.0f,600.0f,10.0f);
+	auto ball = std::make_shared<Ball>(WINDOW_WIDTH / 2, ((WINDOW_HEIGHT - WINDOW_HEIGHT/10) - DEFAULT_BALL_SIZE*2), DEFAULT_BALL_SIZE);
+
 	EntityManager::GetInstance().AddEntity(ball);
 
 	// END OF TEST
@@ -56,7 +57,24 @@ void App::InternalUpdate()
 	m_TimeManager->Update();
 	float deltaTime = m_TimeManager->GetDeltaTime();
 
+	if (!isBallFree) {
+		for (auto& ball : EntityManager::GetInstance().GetEntitiesByType<Ball>())
+		{
+			std::vector <std::shared_ptr<Player>> player = EntityManager::GetInstance().GetEntitiesByType<Player>();
+			isBallFree = ball->IsBallFree();
+			if (!isBallFree)
+			{
+				ball->SetDirectionY(0);
+				ball->SetDirectionX(player.front()->GetDirection());
+				ball->SetSpeed(player.front()->GetSpeed());
+			}
+			
+		}
+	}
+	
+
 	for (auto& element : EntityManager::GetInstance().GetAllEntities()) {
+		
 		element->Update(deltaTime);
 	}
 }

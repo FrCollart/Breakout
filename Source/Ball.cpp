@@ -26,6 +26,27 @@ Ball::~Ball()
 {
 }
 
+void Ball::SetSpeed(float speed)
+{
+	m_Speed = speed;
+}
+
+void Ball::SetDirectionX(float x)
+{
+	m_DirectionX = x;
+}
+
+void Ball::SetDirectionY(float y)
+{
+	m_DirectionY = y;
+}
+
+void Ball::FreeTheBall()
+{
+	m_DirectionY = -1.0f;
+	m_FollowPlayer = false;
+}
+
 void Ball::SetSpritePos(float newX, float newY)
 {
 	auto sprite = std::dynamic_pointer_cast<sf::CircleShape>(m_Sprite);
@@ -35,6 +56,11 @@ void Ball::SetSpritePos(float newX, float newY)
 	}
 
 	sprite->setPosition(newX - m_Size, newY - m_Size);
+}
+
+bool Ball::IsBallFree()
+{
+	return !m_FollowPlayer;
 }
 
 void Ball::Update(float deltatime)

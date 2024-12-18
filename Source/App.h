@@ -22,6 +22,8 @@ private:
 	void InternalRender();
 
 private:
+	bool isBallFree = false;
+
 	std::unique_ptr<Window> m_Window = nullptr;
 	std::unique_ptr<TimeManager> m_TimeManager = nullptr;
 	std::unique_ptr<PhysicsManager> m_PhysicsManager = nullptr;
