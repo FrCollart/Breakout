@@ -47,7 +47,7 @@ void BrickGrid::ImportMap(std::string path)
 				int x = colIndex * (BRICK_WIDTH + GRID_INTER) + GRID_X;
 				int y = rowIndex * (BRICK_HEIGHT + GRID_INTER) + GRID_Y;
 
-				auto brick = std::make_shared<Brick>(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+				auto brick = std::make_shared<Brick>((float)x, (float)y, (float)BRICK_WIDTH, (float)BRICK_HEIGHT);
 				EntityManager::GetInstance().AddEntity(brick);
 			}
 		}
