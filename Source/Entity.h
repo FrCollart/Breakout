@@ -19,7 +19,7 @@ public:
 	void LoadTexture(const char* filePath);
 
 	virtual void Update(float deltaTime) =0;
-	virtual void OnCollide() = 0;
+	//virtual void OnCollide() = 0;
 
 	// Since Sprite is different for every entity, the offset between the real position and the sprite position is different as well
 	virtual void SetSpritePos(float newX, float newY) = 0;
