@@ -12,9 +12,6 @@ constexpr const int GRID_Y = 100;
 constexpr const int GRID_X = 0;
 constexpr const int GRID_INTER = 5;
 
-constexpr const int MAP_LENGTH = 6;
-constexpr const int MAP_HEIGHT = 4;
-
 constexpr const float DEFAULT_BRICK_WIDTH = 60.0f;
 constexpr const float DEFAULT_BRICK_HEIGHT = 20.0f;
 
