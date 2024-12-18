@@ -21,13 +21,21 @@ void Window::PollEvents()
 		else if (event.type == sf::Event::KeyPressed)
 		{
 			//TODO : Link input to player movements & interactions
-			if (event.key.code == sf::Keyboard::Space) { std::cout << "SpaceBar" << std::endl; }
-			if (event.key.code == sf::Keyboard::Left) { std::cout << "Left" << std::endl; EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(-1.0f); }
-			if (event.key.code == sf::Keyboard::Right) { std::cout << "Right" << std::endl; EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(1.0f); }
+			if (event.key.code == sf::Keyboard::Space)
+			{
+				std::cout << "SpaceBar" << std::endl;
+			}
+			if (event.key.code == sf::Keyboard::Left)
+			{
+				EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(-1.0f);
+			}
+			if (event.key.code == sf::Keyboard::Right)
+			{
+				EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(1.0f);
+			}
 		}
 		if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			std::cout << "Stop" << std::endl;
 			EntityManager::GetInstance().GetPlayer().lock().get()->SetDirection(0.0f);
 		}
 	}
