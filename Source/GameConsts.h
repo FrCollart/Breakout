@@ -1,10 +1,17 @@
 #pragma once
 
-constexpr int WINDOW_WIDTH = 800;
-constexpr int WINDOW_HEIGHT = 600;
+// Window
+constexpr int WINDOW_WIDTH = 600;
+constexpr int WINDOW_HEIGHT = 800;
 constexpr const char* WINDOW_TITLE = "Breakout";
 
-// Gameplay 
+// Gameplay
+constexpr const int GRID_WIDTH = WINDOW_WIDTH;
+constexpr const int GRID_HEIGHT = 300;
+constexpr const int GRID_Y = 100;
+constexpr const int GRID_X = 0;
+constexpr const int GRID_INTER = 5;
+
 constexpr const int MAP_LENGTH = 6;
 constexpr const int MAP_HEIGHT = 4;
 

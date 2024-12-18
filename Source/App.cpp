@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "EntityManager.h"
 #include "BrickGrid.h"
+#include "GameConsts.h"
 
 void App::Run()
 {
@@ -34,8 +35,8 @@ void App::InternalInit()
 	EntityManager& temp = EntityManager::GetInstance();
 	std::shared_ptr<Player> tempPlayer = std::make_shared<Player>();
 
-	tempPlayer->SetX(400.0f);
-	tempPlayer->SetY(400.0f);
+	tempPlayer->SetX(WINDOW_WIDTH / 2);
+	tempPlayer->SetY(700.0f);
 
 	temp.AddEntity(tempPlayer);
 	temp.SetPlayer(tempPlayer);

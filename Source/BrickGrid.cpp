@@ -1,5 +1,9 @@
 #include "BrickGrid.h"
+
+#include <sstream>
+
 #include "Brick.h"
+#include "GameConsts.h"
 
 void BrickGrid::AddBrick(std::shared_ptr<class Brick> brick)
 {
@@ -14,38 +18,54 @@ void BrickGrid::RemoveBrick(std::shared_ptr<class Brick> brick)
 void BrickGrid::ImportMap(std::string path)
 {
 	std::ifstream importFile(path);
-	//temp buffer
-	std::string currentLine;
-
-	int lineCount = 0;
-	while (std::getline(importFile, currentLine))
+	if (!importFile.is_open())
 	{
-		lineCount += 1;
-
-		if (currentLine.size() != MAP_LENGTH)
-		{
-			std::cout << "Map lenght invalid at line : " << lineCount << std::endl;
-			return;
-		}
-	}
-
-	if (lineCount != MAP_HEIGHT)
-	{
-		std::cout << "Map heigth invalid" << std::endl;
+		std::cerr << "Failed to open file: " << path << std::endl;
 		return;
 	}
 
-	//Getline starts from last line of file
-	for (int j = lineCount; j > 0; j--)
-	{
-		//Line
-		for (int i = 0; i < MAP_LENGTH; i++)
-		{
-			if (currentLine.at(i) == 'o' || currentLine.at(i) == 'O')
-				continue;
+	int gridColumns, gridRows;
 
-			auto tempBrick = std::make_shared<Brick>(i,j);
-			AddBrick(tempBrick);
-		}
+	std::string currentLine; if (std::getline(importFile, currentLine))
+	{
+		std::istringstream dimensionStream(currentLine);
+		dimensionStream >> gridColumns >> gridRows;
 	}
+	else
+	{
+		std::cerr << "File is empty or invalid format." << std::endl;
+		return;
+	}
+
+	const int BRICK_WIDTH = (GRID_WIDTH - (gridColumns - 1) * GRID_INTER) / gridColumns;
+	const int BRICK_HEIGHT = (GRID_HEIGHT - (gridRows - 1) * GRID_INTER) / gridRows;
+
+	if (BRICK_WIDTH <= 0 || BRICK_HEIGHT <= 0)
+	{
+		std::cerr << "Invalid dimensions: GRID_WIDTH or GRID_HEIGHT too small for grid configuration." << std::endl;
+		return;
+	}
+
+	int rowIndex = 0;
+	while (std::getline(importFile, currentLine))
+	{
+		for (int colIndex = 0; colIndex < currentLine.size(); ++colIndex)
+		{
+			if (currentLine[colIndex] == 'X')
+			{
+				int x = colIndex * (BRICK_WIDTH + GRID_INTER);
+				int y = rowIndex * (BRICK_HEIGHT + GRID_INTER);
+
+				std::cout << "Brick at: x=" << x << ", y=" << y
+					<< ", width=" << BRICK_WIDTH << ", height=" << BRICK_HEIGHT << std::endl;
+
+				auto brick = std::make_shared<Brick>(x, y, BRICK_WIDTH, BRICK_HEIGHT);
+				AddBrick(brick);
+			}
+		}
+		++rowIndex;
+	}
+
+	importFile.close();
+
 }
