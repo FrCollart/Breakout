@@ -52,8 +52,8 @@ void Entity::SetY(float y)
 void Entity::LoadTexture(const char* filePath)
 {
 	sf::Texture m_Texture;
-
-	if (!m_Texture.loadFromFile(filePath)) {
+	const char* toto = "Sprite/toto.png";
+	if (!m_Texture.loadFromFile(toto)) {
 		std::cerr << "Erreur : Impossible de charger la texture depuis : " << filePath << std::endl;
 	}
 

@@ -39,10 +39,10 @@ void App::InternalInit()
 
 	EntityManager::GetInstance().AddEntity(player);
 
-	/*auto& entityManager = EntityManager::GetInstance();
 
-	auto circle = std::make_shared<Ball>(400.0f,600.0f,10.0f);
-	entityManager.AddEntity(circle);*/
+	auto ball = std::make_shared<Ball>(400.0f,600.0f,10.0f);
+	EntityManager::GetInstance().AddEntity(ball);
+
 	// END OF TEST
 }
 
@@ -63,12 +63,5 @@ void App::InternalUpdate()
 
 void App::InternalRender()
 {
-	// TEST ONLY
-	/*sf::CircleShape circle(50);
-	circle.setFillColor(sf::Color::Red);
-	circle.setPosition(100, 100);*/
-
-	// END OF TEST
-
 	m_Window->Draw();
 }
