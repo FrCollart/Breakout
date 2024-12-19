@@ -67,6 +67,9 @@
     <ClCompile Include="EntityManager.cpp">
       <Filter>Source Files\Core\Private</Filter>
     </ClCompile>
+    <ClCompile Include="RewardManager.cpp">
+      <Filter>Source Files\Core\Private</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFMLTest.h">
@@ -105,10 +108,17 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Source Files\Core\Public</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RewardManager.h">
+      <Filter>Source Files\Core\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Sprite\test.png">
       <Filter>Source Files\Sprite</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Breakout.rc" />
   </ItemGroup>
 </Project>

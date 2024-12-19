@@ -5,6 +5,7 @@
 #include "EntityManager.h"
 #include "BrickGrid.h"
 #include "GameConsts.h"
+#include "RewardManager.h"
 
 void App::Run()
 {
@@ -27,6 +28,9 @@ void App::InternalInit()
 	m_Window = std::make_unique<Window>();
 	m_TimeManager = std::make_unique<TimeManager>();
 	m_PhysicsManager = std::make_unique<PhysicsManager>();
+
+	// TEST ONLY
+	RewardManager::GetInstance().InitializePlayerPointText();
 
 	BrickGrid brickGrid;
 	brickGrid.ImportMap("Ressource/map.txt");
@@ -56,12 +60,12 @@ void App::InternalUpdate()
 
 	m_PhysicsManager->Update(deltaTime);
 
-	if (!isBallFree) {
+	if (!m_IsBallFree) {
 		for (auto& ball : EntityManager::GetInstance().GetEntitiesByType<Ball>())
 		{
 			std::vector <std::shared_ptr<Player>> player = EntityManager::GetInstance().GetEntitiesByType<Player>();
-			isBallFree = ball->IsBallFree();
-			if (!isBallFree)
+			m_IsBallFree = ball->IsBallFree();
+			if (!m_IsBallFree)
 			{
 				ball->SetDirectionY(0);
 				ball->SetDirectionX(player.front()->GetDirection());
@@ -70,7 +74,6 @@ void App::InternalUpdate()
 			
 		}
 	}
-	
 
 	for (auto& element : EntityManager::GetInstance().GetAllEntities())
 	{	

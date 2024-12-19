@@ -14,6 +14,8 @@ void Brick::SetSpritePos(float newX, float newY)
 
 void Brick::OnCollide(Entity& other)
 {
+	RewardManager::GetInstance().CanAddBonusBall();
+	RewardManager::GetInstance().AddPlayerPoint(1);
 	// Do nothing
 	(void)other;
 }
