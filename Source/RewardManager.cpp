@@ -63,9 +63,9 @@ void RewardManager::AddBonusBall()
 	double random_Speed = distribSpeed(gen);
 	double random_Width = distribWidth(gen);
 
-	auto ball = std::make_shared<Ball>(random_Width, ((WINDOW_HEIGHT - WINDOW_HEIGHT / 10) - DEFAULT_BALL_SIZE * 2), DEFAULT_BALL_SIZE);
-	ball->SetDirectionX(random_DirectionX);
-	ball->SetSpeed(random_Speed);
+	auto ball = std::make_shared<Ball>((float)random_Width, ((WINDOW_HEIGHT - WINDOW_HEIGHT / 10) - DEFAULT_BALL_SIZE * 2), DEFAULT_BALL_SIZE);
+	ball->SetDirectionX((float)random_DirectionX);
+	ball->SetSpeed((float)random_Speed);
 	ball->FreeTheBall();
 	EntityManager::GetInstance().AddEntity(ball);
 }

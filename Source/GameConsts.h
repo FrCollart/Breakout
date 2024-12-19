@@ -15,7 +15,7 @@ constexpr const int GRID_INTER = 5;
 constexpr const float DEFAULT_BRICK_WIDTH = 60.0f;
 constexpr const float DEFAULT_BRICK_HEIGHT = 20.0f;
 
-constexpr const float DEFAULT_BALL_SPEED = 100.0f;
+constexpr const float DEFAULT_BALL_SPEED = 200.0f;
 constexpr const float DEFAULT_BALL_DIRECTIONX = 0.0f;
 constexpr const float DEFAULT_BALL_DIRECTIONY = -1.0f;
 constexpr const float DEFAULT_BALL_SIZE = 10.0f;

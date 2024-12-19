@@ -19,7 +19,7 @@ GameManager& GameManager::GetInstance()
 
 void GameManager::Initialize(int level)
 {
-	RewardManager::GetInstance().InitializePlayerPointText();
+	//RewardManager::GetInstance().InitializePlayerPointText();
 
 	// Reconstruct levelPath
 	std::string levelPath;
@@ -96,9 +96,9 @@ void GameManager::CheckGameStatus()
 
 void GameManager::OnReplay()
 {
-	m_GameState = GameState::AIMING;
 	EntityManager::GetInstance().ClearEntities();
 	Initialize();
+	m_GameState = GameState::AIMING;
 }
 
 void GameManager::OnPlay()
