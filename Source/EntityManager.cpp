@@ -6,6 +6,26 @@ EntityManager& EntityManager::GetInstance()
 	return instance;
 }
 
+void EntityManager::RemoveEntity(std::shared_ptr<Entity> entity)
+{
+    for (auto& [type, entities] : m_Entities)
+    {
+        auto& entityVector = entities;
+        auto it = std::find(entityVector.begin(), entityVector.end(), entity);
+        if (it != entityVector.end())
+        {
+            entityVector.erase(it);
+
+            if (entityVector.empty())
+            {
+                m_Entities.erase(type);
+            }
+
+            return;
+        }
+    }
+}
+
 std::vector<std::shared_ptr<Entity>> EntityManager::GetAllEntities()
 {
     std::vector<std::shared_ptr<Entity>> allEntities;

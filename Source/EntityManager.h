@@ -21,8 +21,10 @@ public:
 	template<IsEntity T>
 	void AddEntity(std::shared_ptr<T> entity);
 
+	void RemoveEntity(std::shared_ptr<Entity> entity);
+
 	template <IsEntity T>
-	// Returns a vector of shared pointers to entities of type T
+	// Not optimized, consider using GetEntitiesRawByType instead
 	std::vector<std::shared_ptr<T>> GetEntitiesByType();
 
 	template <IsEntity T>
