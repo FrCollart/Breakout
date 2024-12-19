@@ -3,6 +3,7 @@
 #include "EntityManager.h"
 #include "Entity.h"
 #include "Player.h"
+#include "Ball.h"
 
 #include <memory>
 
@@ -23,7 +24,8 @@ void Window::PollEvents()
 			//TODO : Link input to player movements & interactions
 			if (event.key.code == sf::Keyboard::Space)
 			{
-				std::cout << "SpaceBar" << std::endl;
+				auto ball = EntityManager::GetInstance().GetEntitiesByType<Ball>();
+				ball.front()->FreeTheBall();
 			}
 			if (event.key.code == sf::Keyboard::Left)
 			{
