@@ -1,6 +1,7 @@
 #include "Brick.h"
 
 #include "EntityManager.h"
+#include "GameManager.h"
 
 void Brick::SetSpritePos(float newX, float newY)
 {
@@ -14,10 +15,11 @@ void Brick::SetSpritePos(float newX, float newY)
 
 void Brick::OnCollide(Entity& other)
 {
-	// Do nothing
 	(void)other;
+	GameManager::GetInstance().CheckGameStatus();
 }
 
 void Brick::Update(float deltaTime)
 {
+
 }

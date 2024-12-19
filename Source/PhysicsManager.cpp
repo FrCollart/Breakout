@@ -1,6 +1,7 @@
 #include "PhysicsManager.h"
 
 #include "EntityManager.h"
+#include "GameManager.h"
 #include "Entity.h"
 #include "Player.h"
 #include "Ball.h"
@@ -13,6 +14,7 @@ void PhysicsManager::Update(float deltaTime)
 	auto bricks = EntityManager::GetInstance().GetEntitiesByType<Brick>();
 
     std::vector<std::shared_ptr<Brick>> bricksToRemove;
+    std::vector<std::shared_ptr<Ball>> ballsToRemove;
 
 	for (auto& ball : balls)
 	{
@@ -20,12 +22,17 @@ void PhysicsManager::Update(float deltaTime)
         float ballY = ball->GetY();
         float radius = ball->GetSize();
 
+        if (ballY + radius > WINDOW_HEIGHT)
+        {
+			ballsToRemove.emplace_back(ball);
+        }
+
         if (ballX - radius < 0 || ballX + radius > WINDOW_WIDTH)
         {
             ball->OnCollideWithBorder(true);
         }
 
-        if (ballY - radius < 0 || ballY + radius > WINDOW_HEIGHT)
+        if (ballY - radius < 0)
         {
             ball->OnCollideWithBorder(false);
         }
@@ -56,14 +63,30 @@ void PhysicsManager::Update(float deltaTime)
         }
 	}
 
-    for (auto& brick : bricksToRemove)
+    if (!ballsToRemove.empty())
     {
-        EntityManager::GetInstance().RemoveEntity(brick);
+        for (auto& ball : ballsToRemove)
+        {
+            EntityManager::GetInstance().RemoveEntity(ball);
+        }
+
+        GameManager::GetInstance().CheckGameStatus();
+		return;
+    }
+
+    if (!bricksToRemove.empty())
+    {
+        for (auto& brick : bricksToRemove)
+        {
+            EntityManager::GetInstance().RemoveEntity(brick);
+        }
+
+		GameManager::GetInstance().CheckGameStatus();
     }
 }
 
 bool PhysicsManager::CheckCircleAABBCollision(float circleX, float circleY, float radius,
-                                              float rectX, float rectY, float rectWidth, float rectHeight)
+                                                float rectX, float rectY, float rectWidth, float rectHeight)
 {
     float closestX = std::max(rectX, std::min(circleX, rectX + rectWidth));
     float closestY = std::max(rectY, std::min(circleY, rectY + rectHeight));

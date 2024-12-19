@@ -27,3 +27,8 @@ constexpr const float DEFAULT_PLAYER_HEIGHT = 20.0f;
 constexpr const char* TEXTUREPLAYER = "";
 constexpr const char* TEXTUREBALL = "Sprite/test.png";
 constexpr const char* TEXTUREBRICK = "";
+
+// Levels path
+constexpr const char* LEVEL_PATH = "Ressource/level";
+constexpr const char* LOSE_PATH = "Ressource/lose.txt";
+constexpr const char* WIN_PATH = "Ressource/win.txt";

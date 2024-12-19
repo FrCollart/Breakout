@@ -28,20 +28,7 @@ void App::InternalInit()
 	m_TimeManager = std::make_unique<TimeManager>();
 	m_PhysicsManager = std::make_unique<PhysicsManager>();
 
-	BrickGrid brickGrid;
-	brickGrid.ImportMap("Ressource/map.txt");
-
-	std::shared_ptr<Player> player = std::make_shared<Player>();
-
-	player->SetX(WINDOW_WIDTH / 2);
-	player->SetY(WINDOW_HEIGHT - WINDOW_HEIGHT/10);
-
-	EntityManager::GetInstance().AddEntity(player);
-
-
-	auto ball = std::make_shared<Ball>((float)(WINDOW_WIDTH / 2), ((WINDOW_HEIGHT - WINDOW_HEIGHT/10) - DEFAULT_BALL_SIZE*2), DEFAULT_BALL_SIZE);
-
-	EntityManager::GetInstance().AddEntity(ball);
+	GameManager::GetInstance().Initialize();
 }
 
 void App::InternalInput()

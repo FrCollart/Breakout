@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "TimeManager.h"
 #include "PhysicsManager.h"
+#include "GameManager.h"
 
 class App
 {

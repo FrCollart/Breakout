@@ -7,8 +7,7 @@
 
 #include <memory>
 
-//Temp include
-#include <iostream>
+#include "GameManager.h"
 
 void Window::PollEvents()
 {
@@ -24,8 +23,17 @@ void Window::PollEvents()
 			//TODO : Link input to player movements & interactions
 			if (event.key.code == sf::Keyboard::Space)
 			{
-				auto ball = EntityManager::GetInstance().GetEntitiesByType<Ball>();
-				ball.front()->FreeTheBall();
+				GameManager& gameManager = GameManager::GetInstance();
+				if (gameManager.GetGameState() == GameState::AIMING)
+				{
+					auto ball = EntityManager::GetInstance().GetEntitiesByType<Ball>();
+					ball.front()->FreeTheBall();
+					gameManager.CheckGameStatus();
+				}
+				else if (gameManager.GetGameState() == GameState::WIN || gameManager.GetGameState() == GameState::LOSE)
+				{
+					gameManager.CheckGameStatus();
+				}
 			}
 			if (event.key.code == sf::Keyboard::Left)
 			{

@@ -9,6 +9,14 @@ Player::Player()
 	m_Sprite = std::make_shared<sf::RectangleShape>(rectangle);
 }
 
+Player::Player(float posX, float posY)
+	: Entity(posX, posY), m_Speed(200.0f), m_DirectionX(0.0f), m_Width(DEFAULT_PLAYER_WIDTH), m_Height(DEFAULT_PLAYER_HEIGHT)
+{
+	sf::RectangleShape rectangle(sf::Vector2f(m_Width, m_Height));
+	rectangle.setFillColor(sf::Color::Blue);
+	m_Sprite = std::make_shared<sf::RectangleShape>(rectangle);
+}
+
 void Player::SetDirection(float direction)
 {
 	m_DirectionX = direction;

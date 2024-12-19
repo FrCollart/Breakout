@@ -6,6 +6,7 @@ class Player : public Entity
 {
 public:
 	Player();
+	Player(float posX, float posY);
 	~Player() {};
 
 	float GetDirection() const { return m_DirectionX; }

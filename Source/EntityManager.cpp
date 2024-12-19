@@ -26,6 +26,11 @@ void EntityManager::RemoveEntity(std::shared_ptr<Entity> entity)
     }
 }
 
+void EntityManager::ClearEntities()
+{
+	m_Entities.clear();
+}
+
 std::vector<std::shared_ptr<Entity>> EntityManager::GetAllEntities()
 {
     std::vector<std::shared_ptr<Entity>> allEntities;

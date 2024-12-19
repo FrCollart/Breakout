@@ -22,6 +22,7 @@ public:
 	void AddEntity(std::shared_ptr<T> entity);
 
 	void RemoveEntity(std::shared_ptr<Entity> entity);
+	void ClearEntities();
 
 	template <IsEntity T>
 	// Not optimized, consider using GetEntitiesRawByType instead
