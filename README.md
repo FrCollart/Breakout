@@ -15,7 +15,8 @@
 5. Copy the Ressource folder in Source folder and paste it at the root of the .exe as well
 
 That's it! You can edit your own level at will. You just need to fill the level1.txt file with X where you want to place a brick and an O where you want an empty space.
-Note: This project makes the use of concepts, you need C++20 to compile it !
+
+**Note:** This project makes the use of concepts, you need C++20 to compile it !
 
 ## Code we are proud of
 
