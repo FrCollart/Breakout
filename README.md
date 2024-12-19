@@ -26,5 +26,5 @@ That's it! You can edit your own level at will. You just need to fill the level1
 
 **François**:
 
-- EntityManager -> The map structure to store and access data easily.
+- EntityManager -> The map structure to store and access data easily, template functions and concepts to access it.
 - Entity Sprites management -> Easy to access the sprite to draw it every frame, and paying attention on the owernership as well (returning a weak_ptr).
