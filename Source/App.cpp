@@ -43,6 +43,7 @@ void App::InternalUpdate()
 
 	m_PhysicsManager->Update(deltaTime);
 
+	// TODO: put this in ball update
 	if (!m_IsBallFree) {
 		for (auto& ball : EntityManager::GetInstance().GetEntitiesByType<Ball>())
 		{
