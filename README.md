@@ -15,3 +15,14 @@
 5. Copy the Ressource folder in Source folder and paste it at the root of the .exe as well
 
 That's it! You can edit your own level at will. You just need to fill the level1.txt file with X where you want to place a brick and an O where you want an empty space.
+
+## Code we are proud of
+
+**All of us**:
+
+- Not a single raw pointer in the project, all pointers are Smart Pointers.
+
+**François**:
+
+- EntityManager -> The map structure to store and access data easily.
+- Entity Sprites management -> Easy to access the sprite to draw it every frame, and paying attention on the owernership as well (returning a weak_ptr).
