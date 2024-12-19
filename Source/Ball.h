@@ -34,5 +34,4 @@ private:
 	float m_Size;
 
 	bool m_FollowPlayer = true;
-	float collisionCooldown = 0.0f;
 };

@@ -41,7 +41,6 @@ void Ball::SetDirectionX(float x)
 
 void Ball::OnCollide(Entity& other)
 {
-	if (collisionCooldown > 0.0f) return;
 	if (!dynamic_cast<Player*>(&other) && !dynamic_cast<Brick*>(&other)) return;
 
 	float rectX = other.GetX();
@@ -81,13 +80,10 @@ void Ball::OnCollide(Entity& other)
 			m_DirectionY = -m_DirectionY;
 		}		
 	}
-	collisionCooldown = 0.1f;
 }
 
 void Ball::OnCollideWithBorder(bool horizontal)
 {
-	if (collisionCooldown > 0.0f) return;
-
 	if (horizontal)
 	{
 		m_DirectionX = -m_DirectionX;
@@ -96,8 +92,6 @@ void Ball::OnCollideWithBorder(bool horizontal)
 	{
 		m_DirectionY = -m_DirectionY;
 	}
-
-	collisionCooldown = 0.1f;
 }
 
 void Ball::SetDirectionY(float y)
@@ -129,9 +123,6 @@ bool Ball::IsBallFree()
 
 void Ball::Update(float deltaTime)
 {
-	if (collisionCooldown > 0)
-		collisionCooldown -= deltaTime;
-
 	SetX(m_PosX + (deltaTime * m_Speed * m_DirectionX));
 	SetY(m_PosY + (deltaTime * m_Speed * m_DirectionY));
 }

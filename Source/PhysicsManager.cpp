@@ -12,6 +12,8 @@ void PhysicsManager::Update(float deltaTime)
 	auto players = EntityManager::GetInstance().GetEntitiesByType<Player>();
 	auto bricks = EntityManager::GetInstance().GetEntitiesByType<Brick>();
 
+    std::vector<std::shared_ptr<Brick>> bricksToRemove;
+
 	for (auto& ball : balls)
 	{
         float ballX = ball->GetX();
@@ -48,9 +50,16 @@ void PhysicsManager::Update(float deltaTime)
             {
                 ball->OnCollide(*brick);
                 brick->OnCollide(*ball);
+
+                bricksToRemove.emplace_back(brick);
             }
         }
 	}
+
+    for (auto& brick : bricksToRemove)
+    {
+        EntityManager::GetInstance().RemoveEntity(brick);
+    }
 }
 
 bool PhysicsManager::CheckCircleAABBCollision(float circleX, float circleY, float radius,

@@ -14,7 +14,8 @@ void Brick::SetSpritePos(float newX, float newY)
 
 void Brick::OnCollide(Entity& other)
 {
-	EntityManager::GetInstance().RemoveEntity(std::make_shared<Brick>(*this));
+	// Do nothing
+	(void)other;
 }
 
 void Brick::Update(float deltaTime)
