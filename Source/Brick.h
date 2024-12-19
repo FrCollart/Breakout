@@ -23,7 +23,12 @@ public:
 	}
 	~Brick() {}
 
+	float GetWidth() const { return m_Width; }
+	float GetHeight() const { return m_Height; }
+
 	void SetSpritePos(float newX, float newY) override;
+	void OnCollide(Entity& other) override;
+
 	void Update(float deltaTime) override;
 
 private:

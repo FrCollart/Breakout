@@ -1,5 +1,8 @@
 #pragma once
+
 #include "Entity.h"
+
+#include <memory>
 
 class Ball : public Entity
 {
@@ -9,6 +12,8 @@ public:
 	Ball(float posX, float posY, float size);
 	~Ball();
 
+	float GetSize() const { return m_Size; }
+
 	void SetSpeed(float speed);
 	void SetDirectionX(float x);
 	void SetDirectionY(float y);
@@ -16,9 +21,11 @@ public:
 
 	bool IsBallFree();
 
-	void Update(float deltaTime) override;
-
 	void SetSpritePos(float newX, float newY) override;
+	void OnCollide(Entity& other) override;
+	void OnCollideWithBorder(bool horizontal);
+
+	void Update(float deltaTime) override;
 
 private:
 	float m_Speed;
@@ -27,4 +34,5 @@ private:
 	float m_Size;
 
 	bool m_FollowPlayer = true;
+	float collisionCooldown = 0.0f;
 };

@@ -2,26 +2,11 @@
 #include "GameConsts.h"
 
 Player::Player() 
-	: Entity(), m_Speed(200.0f), m_DirectionX(0.0f)
+	: Entity(), m_Speed(200.0f), m_DirectionX(0.0f), m_Width(DEFAULT_PLAYER_WIDTH), m_Height(DEFAULT_PLAYER_HEIGHT)
 {
-	sf::RectangleShape rectangle(sf::Vector2f(DEFAULT_PLAYER_WIDTH, DEFAULT_PLAYER_HEIGHT));
+	sf::RectangleShape rectangle(sf::Vector2f(m_Width, m_Height));
 	rectangle.setFillColor(sf::Color::Blue);
 	m_Sprite = std::make_shared<sf::RectangleShape>(rectangle);
-}
-
-void Player::Move()
-{
-	m_PosX += m_Speed * m_DirectionX;
-}
-
-float Player::GetDirection()
-{
-	return m_DirectionX;
-}
-
-float Player::GetSpeed()
-{
-	return m_Speed;
 }
 
 void Player::SetDirection(float direction)
@@ -38,6 +23,12 @@ void Player::SetSpritePos(float PosX, float PosY)
 	}
 
 	sprite->setPosition(PosX - DEFAULT_PLAYER_WIDTH/2, PosY - DEFAULT_PLAYER_HEIGHT / 2);
+}
+
+void Player::OnCollide(Entity& other)
+{
+	// Do nothing
+	(void)other;
 }
 
 void Player::Update(float deltaTime)

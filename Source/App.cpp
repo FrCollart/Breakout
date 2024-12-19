@@ -28,7 +28,6 @@ void App::InternalInit()
 	m_TimeManager = std::make_unique<TimeManager>();
 	m_PhysicsManager = std::make_unique<PhysicsManager>();
 
-	// TEST ONLY
 	BrickGrid brickGrid;
 	brickGrid.ImportMap("Ressource/map.txt");
 
@@ -40,11 +39,9 @@ void App::InternalInit()
 	EntityManager::GetInstance().AddEntity(player);
 
 
-	auto ball = std::make_shared<Ball>(WINDOW_WIDTH / 2, ((WINDOW_HEIGHT - WINDOW_HEIGHT/10) - DEFAULT_BALL_SIZE*2), DEFAULT_BALL_SIZE);
+	auto ball = std::make_shared<Ball>((float)(WINDOW_WIDTH / 2), ((WINDOW_HEIGHT - WINDOW_HEIGHT/10) - DEFAULT_BALL_SIZE*2), DEFAULT_BALL_SIZE);
 
 	EntityManager::GetInstance().AddEntity(ball);
-
-	// END OF TEST
 }
 
 void App::InternalInput()
@@ -56,6 +53,8 @@ void App::InternalUpdate()
 {
 	m_TimeManager->Update();
 	float deltaTime = m_TimeManager->GetDeltaTime();
+
+	m_PhysicsManager->Update(deltaTime);
 
 	if (!isBallFree) {
 		for (auto& ball : EntityManager::GetInstance().GetEntitiesByType<Ball>())
@@ -73,8 +72,8 @@ void App::InternalUpdate()
 	}
 	
 
-	for (auto& element : EntityManager::GetInstance().GetAllEntities()) {
-		
+	for (auto& element : EntityManager::GetInstance().GetAllEntities())
+	{	
 		element->Update(deltaTime);
 	}
 }
