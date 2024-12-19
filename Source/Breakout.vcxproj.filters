@@ -69,6 +69,8 @@
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
+    <ClCompile Include="RewardManager.cpp">
+      <Filter>Source Files\Core\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,10 +111,17 @@
       <Filter>Source Files\Core\Public</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="RewardManager.h">
+      <Filter>Source Files\Core\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Sprite\test.png">
       <Filter>Source Files\Sprite</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Breakout.rc" />
   </ItemGroup>
 </Project>

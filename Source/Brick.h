@@ -2,6 +2,7 @@
 
 #include "Entity.h"
 #include "GameConsts.h"
+#include "RewardManager.h"
 
 class Brick : public Entity
 {
