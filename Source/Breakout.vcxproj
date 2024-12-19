@@ -172,7 +172,6 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="RewardManager.h" />
     <ClInclude Include="SFMLTest.h" />
     <ClInclude Include="TimeManager.h" />
@@ -180,9 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Sprite\test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Breakout.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,7 @@
 #include "GameManager.h"
 
 #include "EntityManager.h"
+#include "RewardManager.h"
 #include "BrickGrid.h"
 #include "Player.h"
 #include "Brick.h"
@@ -18,6 +19,8 @@ GameManager& GameManager::GetInstance()
 
 void GameManager::Initialize(int level)
 {
+	RewardManager::GetInstance().InitializePlayerPointText();
+
 	// Reconstruct levelPath
 	std::string levelPath;
 

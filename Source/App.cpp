@@ -5,7 +5,6 @@
 #include "EntityManager.h"
 #include "BrickGrid.h"
 #include "GameConsts.h"
-#include "RewardManager.h"
 
 void App::Run()
 {
@@ -29,7 +28,6 @@ void App::InternalInit()
 	m_TimeManager = std::make_unique<TimeManager>();
 	m_PhysicsManager = std::make_unique<PhysicsManager>();
 
-	RewardManager::GetInstance().InitializePlayerPointText();
 	GameManager::GetInstance().Initialize();
 }
 

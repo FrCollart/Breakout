@@ -121,7 +121,4 @@
       <Filter>Source Files\Sprite</Filter>
     </Image>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Breakout.rc" />
-  </ItemGroup>
 </Project>
