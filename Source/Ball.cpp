@@ -8,7 +8,8 @@ Ball::Ball()
 	: Entity(), m_Speed(DEFAULT_BALL_SPEED), m_DirectionX(DEFAULT_BALL_DIRECTIONX), m_DirectionY(DEFAULT_BALL_DIRECTIONY), m_Size(DEFAULT_BALL_SIZE)
 {
 	m_Sprite = std::make_shared<sf::CircleShape>(m_Size);
-	//LoadTexture(TEXTUREBALL);	
+	//LoadTexture(TEXTUREBALL);
+	SetSpritePos(m_PosX, m_PosY);
 }
 
 Ball::Ball(float size)

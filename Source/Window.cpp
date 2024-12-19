@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "Player.h"
 #include "Ball.h"
+#include "RewardManager.h"
 
 #include <memory>
 
@@ -21,7 +22,6 @@ void Window::PollEvents()
 		}
 		else if (event.type == sf::Event::KeyPressed)
 		{
-			//TODO : Link input to player movements & interactions
 			if (event.key.code == sf::Keyboard::Space)
 			{
 				auto ball = EntityManager::GetInstance().GetEntitiesByType<Ball>();
@@ -66,6 +66,9 @@ void Window::Draw()
 			m_Window.draw(*sprite.lock());
 		}
 	}
+	/*sf::Text text = RewardManager::GetInstance().GetPlayerPointText();
+
+	m_Window.draw(text);*/
 
 	InternalDisplay();
 }

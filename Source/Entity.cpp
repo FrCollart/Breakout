@@ -52,10 +52,10 @@ void Entity::SetY(float y)
 void Entity::LoadTexture(const char* filePath)
 {
 	sf::Texture m_Texture;
-	const char* toto = "Sprite/toto.png";
+	const char* toto = "Sprite/test.png";
 	if (!m_Texture.loadFromFile(toto)) {
 		std::cerr << "Erreur : Impossible de charger la texture depuis : " << filePath << std::endl;
 	}
 
-	m_Sprite = std::make_shared<sf::Sprite>(std::move(m_Texture));
+	m_Sprite = std::make_shared<sf::Sprite>(m_Texture);
 }
