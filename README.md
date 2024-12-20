@@ -18,6 +18,11 @@ That's it! You can edit your own level at will. You just need to fill the level1
 
 **Note:** This project makes the use of concepts, you need C++20 to compile it !
 
+## Controls
+
+Use Left and Right arrows to move with the player.
+Use space to release the ball and play again.
+
 ## Code we are proud of
 
 **All of us**:
