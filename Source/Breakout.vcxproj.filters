@@ -1,124 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Source Files\SFML">
-      <UniqueIdentifier>{0891e19c-925c-4591-b325-8a8e835797e2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{b3d82bf5-3790-4ab6-8d55-55ad1bd69a2c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core\Private">
-      <UniqueIdentifier>{1a4098ba-f414-47ef-b2d7-af4c2cf7f157}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Core\Public">
-      <UniqueIdentifier>{86ac465f-122e-462a-8914-25fc36b34e17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entity">
-      <UniqueIdentifier>{c5b34cfd-fe2e-4d9f-b3da-03a6b7661b74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entity\Private">
-      <UniqueIdentifier>{312f7c3e-63e4-4ba0-9ce6-b58273ce097c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Entity\Public">
-      <UniqueIdentifier>{8af54438-920c-4710-adc2-a94b9a46c818}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Sprite">
-      <UniqueIdentifier>{f2781fad-f4c5-4b83-bcc8-2417de75f4c4}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="SFMLTest.cpp">
-      <Filter>Source Files\SFML</Filter>
+      <Filter>Source\Tests</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp">
-      <Filter>Source Files\Core\Private</Filter>
+      <Filter>Source\Core\Private</Filter>
     </ClCompile>
     <ClCompile Include="Breakout.cpp">
-      <Filter>Source Files\Core\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files\Entity\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\Core\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="TimeManager.cpp">
-      <Filter>Source Files\Core\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Entity\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Brick.cpp">
-      <Filter>Source Files\Entity\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Source Files\Entity\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsManager.cpp">
-      <Filter>Source Files\Core\Private</Filter>
+      <Filter>Source\Core\Private</Filter>
     </ClCompile>
     <ClCompile Include="BrickGrid.cpp">
-      <Filter>Source Files\Core\Private</Filter>
+      <Filter>Source\Core\Private</Filter>
     </ClCompile>
     <ClCompile Include="EntityManager.cpp">
-      <Filter>Source Files\Core\Private</Filter>
+      <Filter>Source\Core\Private</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source\Core\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>Source\Core\Private</Filter>
+    </ClCompile>
     <ClCompile Include="RewardManager.cpp">
-      <Filter>Source Files\Core\Private</Filter>
+      <Filter>Source\Core\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeManager.cpp">
+      <Filter>Source\Core\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source\Core\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
+      <Filter>Source\Entity\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Brick.cpp">
+      <Filter>Source\Entity\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source\Entity\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source\Entity\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFMLTest.h">
-      <Filter>Source Files\SFML</Filter>
-    </ClInclude>
-    <ClInclude Include="App.h">
-      <Filter>Source Files\Core\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Source Files\Entity\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="GameConsts.h">
-      <Filter>Source Files\Core\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeManager.h">
-      <Filter>Source Files\Core\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files\Core\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files\Entity\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Brick.h">
-      <Filter>Source Files\Entity\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Source Files\Entity\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsManager.h">
-      <Filter>Source Files\Core\Public</Filter>
+      <Filter>Source\Tests</Filter>
     </ClInclude>
     <ClInclude Include="BrickGrid.h">
-      <Filter>Source Files\Core\Public</Filter>
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="App.h">
+      <Filter>Source\Core\Public</Filter>
     </ClInclude>
     <ClInclude Include="EntityManager.h">
-      <Filter>Source Files\Core\Public</Filter>
+      <Filter>Source\Core\Public</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="GameConsts.h">
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
     <ClInclude Include="RewardManager.h">
-      <Filter>Source Files\Core\Public</Filter>
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeManager.h">
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Source\Core\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Source\Entity\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Source\Entity\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Source\Entity\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source\Entity\Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{af2f50f7-1233-413b-a185-8dfcc97942ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core">
+      <UniqueIdentifier>{1a1dfae0-5529-4254-a2e6-8071b7443f74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entity">
+      <UniqueIdentifier>{b6d245b8-b761-4e07-8d41-59c6e38ffed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tests">
+      <UniqueIdentifier>{41e1a999-afea-45d6-b29d-0b2b22afd63c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Private">
+      <UniqueIdentifier>{feb694e2-c16b-4180-a165-4c8f5e5e36d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Core\Public">
+      <UniqueIdentifier>{eadeaa33-5123-4a3b-b48d-9268a3e7d35c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entity\Private">
+      <UniqueIdentifier>{88c7c83d-4c34-4f82-b676-cb39a823e1a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entity\Public">
+      <UniqueIdentifier>{b4638f80-2e3b-4404-8976-a9f7f0085677}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="Sprite\test.png">
-      <Filter>Source Files\Sprite</Filter>
+      <Filter>Source\Tests</Filter>
     </Image>
   </ItemGroup>
 </Project>
