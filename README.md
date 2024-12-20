@@ -28,3 +28,7 @@ That's it! You can edit your own level at will. You just need to fill the level1
 
 - EntityManager -> The map structure to store and access data easily, template functions and concepts to access it.
 - Entity Sprites management -> Easy to access the sprite to draw it every frame, and paying attention on the owernership as well (returning a weak_ptr).
+
+**Tristan**:
+
+- BrickGrid -> Easy to use tool that allows us to quickly "draw" and import a brick layout to play with, simply by editing a .txt file.
