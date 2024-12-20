@@ -44,9 +44,9 @@ void RewardManager::CanAddBonusBall()
 	std::mt19937 gen(rd());
 	std::uniform_real_distribution<> distribBallChance(1, m_chanceOfGainABall);
 
-	double random_number = distribBallChance(gen);
+	int random_number = distribBallChance(gen);
 
-	if (random_number == 1.0) {
+	if (random_number == 1) {
 		AddBonusBall();
 	}
 }
